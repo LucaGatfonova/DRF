@@ -2,7 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import axios from 'axios';
-import UserList from './components/User.js'
+import UserList from './components/User.js';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+
 
 class App extends React.Component{
    constructor(props) {
@@ -28,11 +31,24 @@ class App extends React.Component{
 
    render () {
        return (
+         <>
+           <div>
+                <Navbar />
+           </div>
            <div>
                <UserList users={this.state.users} />
            </div>
-       )
+               <div className="page-container">
+               <div className="content-wrap">
+                    </div>
+                        <Footer />
+                    </div>
+         </>
+       );
    }
 }
 
+
 export default App;
+
+
