@@ -6,6 +6,6 @@ from .serializers import UserModelSerializer
 
 
 class UserModelViewSet(ModelViewSet):
-    renderer_classes = [CamelCaseJSONRenderer, CamelCaseBrowsableAPIRenderer]
+    renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
