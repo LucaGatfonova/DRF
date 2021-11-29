@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import ProjectList from './components/Project.js';
 import TodoList from './components/Todo.js';
+import ProjectDetail from './components/ProjectDetail.js';
 
 
 const NotFound404 = ({ location }) => {
@@ -73,8 +74,10 @@ class App extends React.Component{
                         <Route exact path='/' component={() => <UserList users={this.state.users} />} />
                         <Route exact path='/projects' component={() => <ProjectList projects={this.state.projects}/>} />
                         <Route exact path='/todo' component={() => <TodoList todo={this.state.todo} />} />
+                        <Route exact path='/project/:id'>
+                            <ProjectDetail projects={this.state.projects}
+                             users={this.state.users} todo={this.state.todo} /> </Route>
                         <Route component={NotFound404} />
-                        <Redirect from='/projects' to='/' />
                     </Switch>
                     <Footer />
                 </BrowserRouter>

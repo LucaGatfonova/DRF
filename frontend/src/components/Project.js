@@ -1,11 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
-const ProjectItem = ({project}) => {
+const ProjectItem = ({project, users}) => {
    return (
        <tr>
            <td>
-               {project.id}
+               <Link to={`/project/${project.id}`}>{project.id}</Link>
            </td>
            <td>
                {project.name}
@@ -17,19 +18,19 @@ const ProjectItem = ({project}) => {
    )
 }
 
-const ProjectList = ({projects}) => {
+const ProjectList = ({projects, users}) => {
    return (
        <table>
-           <th>
-               id
-           </th>
-           <th>
-               Name
-           </th>
-           <th>
-               User
-           </th>
-           {projects.map((project) => <ProjectItem project={project} />)}
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+       <tbody>
+            {projects.map((project) => <ProjectItem project={project} />)}
+       </tbody>
        </table>
    )
 }
