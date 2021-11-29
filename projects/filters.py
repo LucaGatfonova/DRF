@@ -17,3 +17,4 @@ class TodoFilter(filters.FilterSet):
     class Meta:
         model = Todo
         fields = ['project', 'created']
+
