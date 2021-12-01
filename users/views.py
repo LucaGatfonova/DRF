@@ -11,6 +11,6 @@ class UserCustomViewSet(mixins.ListModelMixin,
                         mixins.RetrieveModelMixin,
                         mixins.UpdateModelMixin,
                         viewsets.GenericViewSet):
-    renderer_classes = [CamelCaseJSONRenderer, CamelCaseBrowsableAPIRenderer]
+    renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     queryset = User.objects.all()
     serializer_class = UserModelSerializer

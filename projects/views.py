@@ -1,6 +1,6 @@
 from djangorestframework_camel_case.render import CamelCaseBrowsableAPIRenderer, CamelCaseJSONRenderer
 from rest_framework.pagination import LimitOffsetPagination
-from rest_framework.renderers import JSONRenderer
+from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -19,7 +19,7 @@ class TodoLimitOffsetPagination(LimitOffsetPagination):
 
 
 class ProjectModelViewSet(ModelViewSet):
-    renderer_classes = [CamelCaseJSONRenderer, CamelCaseBrowsableAPIRenderer]
+    renderer_classes = renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
     pagination_class = ProjectLimitOffsetPagination
@@ -27,7 +27,7 @@ class ProjectModelViewSet(ModelViewSet):
 
 
 class TodoModelViewSet(ModelViewSet):
-    renderer_classes = [CamelCaseJSONRenderer, CamelCaseBrowsableAPIRenderer]
+    renderer_classes = renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     queryset = Todo.objects.all()
     serializer_class = TodoModelSerializer
     pagination_class = TodoLimitOffsetPagination
