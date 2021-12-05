@@ -135,8 +135,11 @@ class App extends React.Component{
             <div>
                 <BrowserRouter>
                     <Navbar />
-                    {this.is_auth() ?
-                        <button type="button" onClick={() => this.logout()}>Logout {this.state.username}</button> :
+                    {this.state.username}
+                    <br/>
+                    {this.is_auth()
+                        ?
+                        <button type="button" onClick={() => this.logout()}>Logout</button> :
                         <button type="button"><Link to='/login'>Login</Link></button>
                     }
                     <Switch>
