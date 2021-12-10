@@ -19,10 +19,10 @@ from rest_framework.authtoken import views
 from rest_framework.routers import DefaultRouter
 
 from projects.views import TodoModelViewSet, ProjectModelViewSet
-from users.views import UserCustomViewSet
+from users.views import UserModelViewSet
 
 router = DefaultRouter()
-router.register('users', UserCustomViewSet)
+router.register('users', UserModelViewSet)
 router.register('projects', ProjectModelViewSet)
 router.register('todo', TodoModelViewSet)
 
