@@ -10,7 +10,7 @@ from .serializers import UserModelSerializer, UserStaffModelSerializer
 class UserModelViewSet(ModelViewSet):
     queryset = User.objects.all()
     # renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
-    # serializer_class = UserModelSerializer
+    serializer_class = UserModelSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
@@ -21,3 +21,12 @@ class UserModelViewSet(ModelViewSet):
 #     #renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
 #     queryset = User.objects.all()
 #     serializer_class = UserModelSerializer
+
+
+class UserListAPIView(ListAPIView):
+    queryset = User.objects.all()
+
+    def get_serializer_class(self):
+        if self.request.version == 'v2':
+            return UserStaffModelSerializer
+        return UserStaffModelSerializer
