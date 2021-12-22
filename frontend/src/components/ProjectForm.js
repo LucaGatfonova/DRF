@@ -49,14 +49,17 @@ class ProjectForm extends React.Component {
             <div className="form-group">
                 <label>Наименование</label>
                 <input type="text" className="form-control" name="name" value={this.state.name} onChange={(event)=>this.handleChange(event)} />
+                <br/><br/>
                 <label>Ссылка на репозиторий</label>
                 <input type="text" className="form-control" name="repository_url" value={this.state.repository_url} onChange={(event)=>this.handleChange(event)} />
+                <br/><br/>
             </div>
             <div className="form-group">
                 <label for="users">Пользователи</label>
                 <select name="users" multiple onChange={(event)=>this.handleUsersChange(event)}>
                                 {this.props.users.map((item)=><option value={item.id}>{item.username}</option>)}
                 </select>
+                <br/><br/>
             </div>
             <input type="submit" className="btn btn-primary" value="Save" />
         </form>
